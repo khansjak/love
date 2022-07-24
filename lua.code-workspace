@@ -1,0 +1,10 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"pixelbyte.love2d.path": "/Applications/love.app/Contents/MacOS/love"
+	}
+}
