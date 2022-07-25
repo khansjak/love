@@ -28,9 +28,11 @@ function love.update(dt)
 
     if timer<0 then
         timer = 0
-        gameState=1
-        
-        
+        gameState=1     
+    end
+
+    if score < 0 then
+        score =0
     end
    
 end
@@ -58,13 +60,13 @@ end
 function love.mousepressed(x, y, button, istouch, presses)
     if button == 1  and gameState == 2 then
         local mouseToTarget = distanceBetween(x,y,target.x,target.y)
-        
-        
         if mouseToTarget < target.radius then
             score = score+1
             love.audio.play(sound)
             target.x = math.random(target.radius, love.graphics.getWidth() - target.radius)
             target.y = math.random(target.radius, love.graphics.getHeight() - target.radius)
+        elseif mouseToTarget > target.radius then
+            score = score - 1
         end
     elseif button == 1 and gameState==1 then
         gameState=2
